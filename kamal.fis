@@ -1,0 +1,41 @@
+[System]
+Name='kamal'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='jarak'
+Range=[0 20]
+NumMFs=3
+MF1='Dekat':'trimf',[0 0 10]
+MF2='Jauh':'trimf',[7 10.5 14]
+MF3='Sangat_Jauh':'trimf',[12 20 20]
+
+[Input2]
+Name='kerataan'
+Range=[0 10]
+NumMFs=3
+MF1='agak_rata':'trimf',[0 0 4]
+MF2='rata':'trimf',[3 5.5 8]
+MF3='sangat_rata':'trimf',[7 10 10]
+
+[Output1]
+Name='kecepatan'
+Range=[0 60]
+NumMFs=3
+MF1='cepat':'trimf',[-0 0 25]
+MF2='sedang':'trimf',[15 30 45]
+MF3='lambat':'trimf',[35 60 60]
+
+[Rules]
+1 3, 1 (1) : 2
+2 2, 2 (1) : 2
+3 1, 3 (1) : 2
